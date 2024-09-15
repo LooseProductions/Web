@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LG | Luxury Gaming</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        /* Background with Gradient Overlay */
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #fff; /* White text to contrast the background image */
+        }
+
+        /* Topbar */
+        .topbar {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent background */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            position: sticky;
+            top: 0;
+        }
+
+        .topbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #f8f9fa;
+            text-transform: uppercase;
+            animation: slideInLeft 1s ease;
+        }
+
+        .topbar nav a {
+            color: #f8f9fa;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1.1em;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .topbar nav a:hover {
+            color: #00ff88;
+            border-bottom: 2px solid #00ff88;
+            padding-bottom: 3px;
+        }
+
+        /* Dropdown Menu */
+        .topbar nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .topbar nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .topbar nav .dropdown-content a {
+            color: #f8f9fa;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .topbar nav .dropdown-content a:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .topbar nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .main-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: zoomIn 1.5s ease;
+        }
+
+        .main-content p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            color: #f8f9fa;
+        }
+
+        /* Button Style */
+        .main-content a.button {
+            display: inline-block;
+            background-color: #00ff88;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .main-content a.button:hover {
+            background-color: #00b35a;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent */
+            color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+            font-size: 1em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Social Media Icons */
+        .footer .social-icons a {
+            color: #00ff88;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .footer .social-icons a:hover {
+            color: #00b35a;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .topbar .logo {
+                font-size: 1.5em;
+            }
+
+            .topbar nav a {
+                font-size: 0.9em;
+                margin-left: 15px;
+            }
+
+            .main-content h1 {
+                font-size: 2.5em;
+            }
+
+            .main-content p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar with Navigation Links -->
+    <div class="topbar">
+        <div class="logo">Luxury Gaming</div>
+        <nav>
+            <a href="your-store-link-here" target="_blank">Store</a>
+            <a href="your-discord-link-here" target="_blank">Discord</a>
+            <!--<div class="dropdown">
+                <a href="#" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a href="your-rules-link-here" target="_blank">Rules</a>
+                    <a href="your-faq-link-here" target="_blank">FAQ</a>
+                </div>
+            </div>-->
+            <a href="your-application-link-here" target="_blank">Apply</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div>
+            <img src="logo.png" alt="LG Logo" style="width:120px;height:120px;">
+            <h1>Welcome to the Luxury Gaming Server</h1>
+            <p>Luxury Gaming is a FiveM roleplay community that focuses on providing an immersive and realistic roleplaying experience for its members.</p>
+            <a href="your-application-link-here" class="button">Join Now</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 Luxury Gaming. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
