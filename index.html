@@ -1,245 +1,231 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LG | Luxury Gaming</title>
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+                        <title>Luxury Gaming - FiveM</title>
+        
+        <link rel="shortcut icon" href="favicon.ico">
 
-        body, html {
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            scroll-behavior: smooth; /* Smooth scrolling */
-        }
+        <!-- Magnific-popup -->
+        <link rel="stylesheet" href="css/magnific-popup.css">
 
-        /* Background with Gradient Overlay */
-        body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #fff; /* White text to contrast the background image */
-        }
+        <!--Slider Css-->
+        <link href="css/owl.carousel.css" rel="stylesheet">
+        <link href="css/owl.theme.css" rel="stylesheet">
+        <link href="css/owl.transitions.css" rel="stylesheet">
 
-        /* Topbar */
-        .topbar {
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent background */
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            position: sticky;
-            top: 0;
-        }
+        <!-- Icon -->
+        <link href="css/mobiriseicons.css" rel="stylesheet">
 
-        .topbar .logo {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #f8f9fa;
-            text-transform: uppercase;
-            animation: slideInLeft 1s ease;
-        }
+        <link href="css/materialdesignicons.min.css" rel="stylesheet">
 
-        .topbar nav a {
-            color: #f8f9fa;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 1.1em;
-            position: relative;
-            transition: color 0.3s ease;
-        }
+        <!--bootstrap Css-->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        .topbar nav a:hover {
-            color: #00ff88;
-            border-bottom: 2px solid #00ff88;
-            padding-bottom: 3px;
-        }
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet">
+        
+        
+    </head>
+    <body>
+                <!-- START NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top custom_nav_menu sticky" style="background-color:#0c0c0c">
+        <div class="container">
+            <!-- LOGO -->
+            <a class="navbar-brand logo" href="home">
+                <img src="images/logo2.png" alt="" class="img-fluid logo-light" style="width:120px;height:120px;">
+                <img src="images/logo2.png" alt="" class="img-fluid logo-dark" style="width:120px;height:120px;">
+            </a>
 
-        /* Dropdown Menu */
-        .topbar nav .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .topbar nav .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.9);
-            min-width: 150px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .topbar nav .dropdown-content a {
-            color: #f8f9fa;
-            padding: 10px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .topbar nav .dropdown-content a:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .topbar nav .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .main-content h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            animation: zoomIn 1.5s ease;
-        }
-
-        .main-content p {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-            color: #f8f9fa;
-        }
-
-        /* Button Style */
-        .main-content a.button {
-            display: inline-block;
-            background-color: #00ff88;
-            color: white;
-            padding: 12px 25px;
-            font-size: 1.2em;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .main-content a.button:hover {
-            background-color: #00b35a;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent */
-            color: #f8f9fa;
-            text-align: center;
-            padding: 20px;
-            font-size: 1em;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Social Media Icons */
-        .footer .social-icons a {
-            color: #00ff88;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.5em;
-        }
-
-        .footer .social-icons a:hover {
-            color: #00b35a;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideInLeft {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes zoomIn {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .topbar .logo {
-                font-size: 1.5em;
-            }
-
-            .topbar nav a {
-                font-size: 0.9em;
-                margin-left: 15px;
-            }
-
-            .main-content h1 {
-                font-size: 2.5em;
-            }
-
-            .main-content p {
-                font-size: 1.1em;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Topbar with Navigation Links -->
-    <div class="topbar">
-        <div class="logo">Luxury Gaming</div>
-        <nav>
-            <a href="https://luxurygaming.tebex.io" target="_blank">Store</a>
-            <a href="https://discord.gg/luxurygaming" target="_blank">Discord</a>
-            <a href="https://apps.j-studios.net/lg/" target="_blank">Apply</a>
-            <a href="https://luxurygaming.co.uk/safety/" target="_blank">Safety</a>
-        </nav>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <div>
-            <img src="logo.png" alt="LG Logo" style="width:120px;height:120px;">
-            <h1>Welcome to the Luxury Gaming Server</h1>
-            <p>Luxury Gaming is a FiveM roleplay community that focuses on providing an immersive and realistic roleplaying experience for its members.</p>
-            <a href="https://apps.j-studios.net/lg/" class="button">Apply Now</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="mdi mdi-menu"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item active">
+                        <a href="/home#home" data-target="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/home#discord" data-target="#discord" class="nav-link">Discord</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://luxurygaming.tebex.io" class="nav-link">Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://luxurygaming.co.uk/safety/" class="nav-link">Safety</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://luxurygaming.co.uk/redm/" class="nav-link">RedM</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
+    <!-- END NAVBAR -->
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>© 2024 Luxury Gaming. All rights reserved.</p>
-    </div>
+    <!-- Home Section Start-->
+    <section class="bg_home_cover full_height_100vh_home" id="home">
+        <!-- <div class="bg_overlay_cover_on"></div> -->
+        <div class="home_table_cell">
+            <div class="home_table_cell_center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="">
+                                <h1 class="home_title text-white text-capitalize mb-0 pt-3">Luxury Gaming <br> Grand Theft Auto V Roleplay</h1>
 
-</body>
-</html>
+                                <div class="home_text_details">
+                                    <p class="home_subtitle mt-4 mb-0">A huge world where everything is possible, do you want to become the biggest gangster in Los Santos or a rich entrepreneur? The only limit is your imagination in roleplay!</p>
+                                    <p class="home_subtitle mt-4 mb-0">If you have <strong>Grand Theft Auto V PC</strong>, download <strong><a href="https://fivem.net/" target="_blank" alt="FiveM" title="FiveM" style="color:white;text-decoration:underline !important;">FiveM</a></strong> and join the adventure!</p>
+                                    <small style="color:white;font-size:65%;">* <a href="https://fivem.net/" target="_blank" alt="FiveM" title="FiveM" style="color:white;">FiveM</a>, for Grand Theft Auto V on PC. Based on the CitizenFX framework and Onesync technology from Cfx.re.</small>
+                                    
+                                </div>
+
+                                <div class="home_btn_manage mt-4 pt-3">
+                                    <a href="https://discord.gg/luxurygaming" class="btn btn_custom btn_rounded mr-3">Join the adventure</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Section End-->
+
+    <!-- About Start -->
+    <section class="section_all bg-light" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title_all text-center">
+                        <div class="section_icons">
+                            <i class="mbri-home"></i>
+                        </div>
+                        <h3 class="mt-3">Discover <span class="text_custom"> LUXURY </span></h3>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-4">
+                    <div class="about_content_box_all mt-3">
+                        <div class="about_detail">
+                            <div class="about_icon">
+                                <i class="text_custom mdi mdi-lightbulb-on text-center"></i>
+                            </div>
+                            <h5 class="text-dark text-capitalize mt-3">Development</h5>
+                            <p class="edu_desc mt-3 mb-0 text-muted">The development team and the staff of LG give their utmost to offer you a unique and innovative experience concocted by them, all to be discovered in the game!</p><br><br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="about_content_box_all mt-3">
+                        <div class="about_detail">
+                            <div class="about_icon">
+                                <i class="text_custom mdi mdi-arrange-send-to-back text-center"></i>
+                            </div>
+                            <h5 class="text-dark text-capitalize mt-3">Event / Lore</h5>
+                            <p class="edu_desc mb-0 mt-3 text-muted">A rich and evolving lore where player decisions have a real impact on the unfolding of stories, coupled with an active staff that strives to offer you events that have a strong interest in the evolution of the lore. What more could you ask for?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="about_content_box_all mt-3">
+                        <div class="about_detail">
+                            <div class="about_icon">
+                                <i class="text_custom mdi mdi-cards-variant text-center"></i>
+                            </div>
+                            <h5 class="text-dark text-capitalize mt-3">Community</h5>
+                            <p class="edu_desc mb-0 mt-3 text-muted">A mature and attentive community will guide you in your choices and answer your questions in a good-natured and supportive manner.</p><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 vertical_content_manage">
+                <div class="col-lg-6">
+                    <div class="buss_about_box_content mt-3">
+                        <h4 class="text-capitalize">A few words from the administration:</h4>
+                        <div class="feauters-content mt-3">
+                            <h5 class="text-dark">Hello all,</h5>
+                            <p class="feauters-subtitle text-muted mt-3">If there is any bugs make sure to report them in the Discord.</p>
+                        </div>
+
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="about_buainess_img mt-3">
+                        <img src="images/logo2.png" alt="" style="width: 70%;" class="img-fluid mx-auto d-block">
+                    </div>
+                </div>
+            </div>
+
+            
+            </div>
+        
+    </section>
+    <!-- About End -->
+
+ 
+
+    <!-- Start Blog -->
+    
+    <!-- START CTA -->
+    <section class="section_all bg_buss_call_cta" id="discord">
+        <div class="bg_overlay_cover_on"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center text-white">
+                        <h2 class="">Join the Luxury Gaming adventure!</h2>
+                        <p class="mx-auto cta_details mt-4 pt-2">All information to join the LG community is available on the discord below.</p>
+                        <div class="mt-4 pt-3">
+                            <a href="https://discord.gg/luxurygaming" class="btn btn_custom btn-rounded font-weight-bold"><i class="mdi mdi-discord"></i> Discord</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CTA -->
+
+
+
+    <!-- Footer Start -->
+    <section class="section_all bg_footer">
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <div class="text-center buss_icon_social_footer mt-3">
+                        <ul class="list-inline  mb-0">
+                            <li class="list-inline-item"><a href="https://discord.gg/luxurygaming" class=""><i class="mdi mdi-discord"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Footer End -->
+                <!-- JAVASCRIPTS -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!--TESTISLIDER JS-->
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/isotope.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/scrollspy.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/custom.js"></script>
+
+    
+
+</body></html>
